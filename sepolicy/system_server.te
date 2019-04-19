@@ -1,0 +1,18 @@
+# Camera
+allow system_server vendor_camera_prop:file { read open getattr };
+
+# Fingerprint
+allow system_server fingerprint_sysfs:file rw_file_perms;
+
+# hctosys
+allow system_server sysfs:file { read open getattr };
+
+# Input devices
+r_dir_file(system_server, idc_file);
+r_dir_file(system_server, keylayout_file);
+
+# Vibrator
+allow system_server sysfs_vibrator:file rw_file_perms;
+allow system_server sysfs_vibrator:dir search;
+
+allow system_server vendor_file:file { execute r_file_perms };
